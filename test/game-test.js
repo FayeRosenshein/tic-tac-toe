@@ -1,7 +1,7 @@
 // player should be able to play a turn x
 // player1 can win, draw, lose
 //player2 can win, draw, lose
-//player can only pick elements 0-8 
+//player can only pick elements 0-8 x
 //player can't pick an element that has already been picked x
 //player can't pick an element once game is over
 //
@@ -153,6 +153,38 @@ describe("Game", function () {
         var newPlayer2 = new Player({ id: 'two', token: '2' });
         var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
 
-        this.gameBoard.length = 
+        gridSpace = 0
+        assert.equal(newGame.gameBoard[gridSpace], '')
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '1')
+        gridSpace = 9
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.playTurn(gridSpace), 'no')
+        gridSpace = -1
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.playTurn(gridSpace), 'no')
+    })
+    it('Should let player win', function () {
+        var newPlayer1 = new Player({ id: 'one', token: '1' });
+        var newPlayer2 = new Player({ id: 'two', token: '2' });
+        var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
+
+        assert.equal(newPlayer1.wins, 0)
+        newGame.playerWins(newPlayer1)
+        assert.equal(newPlayer1.wins, 1)
+        assert.equal(newPlayer2.wins, 0)
+        newGame.playerWins(newPlayer2)
+        assert.equal(newPlayer1.wins, 1)
+        assert.equal(newPlayer2.wins, 1)
+    })
+    it('Should let players draw', function () {
+        var newPlayer1 = new Player({ id: 'one', token: '1' });
+        var newPlayer2 = new Player({ id: 'two', token: '2' });
+        var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
+
+        newGame.playersDraw()
+        assert.equal(newPlayer1.wins, 0)
+        assert.equal(newPlayer2.wins, 0)
+        assert.equal(newGame.draw, true)
     })
 })

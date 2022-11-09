@@ -48,13 +48,29 @@ class Game {
         }
     }
     playTurn(gridSpacePlayed) {
+        if(gridSpacePlayed > 8 || gridSpacePlayed < 0) {
+            return `no`
+        }
         if (this.currentPlayer === this.playerOne && this.gameBoard[gridSpacePlayed] === '') {
-            this.gameBoard[gridSpacePlayed] = this.playerOne.token
+            this.gameBoard[gridSpacePlayed] = this.currentPlayer.token
             this.changePlayer()
-        } else if (this.currentPlayer === this.playerTwo && this.gameBoard[gridSpacePlayed] === '') {
-            this.gameBoard[gridSpacePlayed] = this.playerTwo.token
+        } 
+        if (this.currentPlayer === this.playerTwo && this.gameBoard[gridSpacePlayed] === '') {
+            this.gameBoard[gridSpacePlayed] = this.currentPlayer.token
             this.changePlayer()
         }
+    }
+    playerWins(player) {
+        if (player === this.playerOne) {
+            this.playerOne.increaseWins()
+            this.resetGameBoard()
+        } else {
+            this.playerTwo.increaseWins()
+            this.resetGameBoard()
+        }
+    }
+    playersDraw() {
+        this.draw = true
     }
 }
 module.exports = Game
