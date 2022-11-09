@@ -1,8 +1,8 @@
-// player should be able to play a turn
+// player should be able to play a turn x
 // player1 can win, draw, lose
 //player2 can win, draw, lose
-//player can only pick elements 0-8
-//player can't pick an element that has already been picked
+//player can only pick elements 0-8 
+//player can't pick an element that has already been picked x
 //player can't pick an element once game is over
 //
 
@@ -100,5 +100,59 @@ describe("Game", function () {
         }
         assert.equal(newGame.hasWon, false)
         assert.equal(newGame.draw, false)
+    })
+    it('Should be able to change player by taking a turn', function () {
+        var newPlayer1 = new Player({ id: 'one', token: '1' });
+        var newPlayer2 = new Player({ id: 'two', token: '2' });
+        var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
+        
+        
+        assert.equal(newGame.currentPlayer, newPlayer1)
+        newGame.changePlayer()
+        assert.equal(newGame.currentPlayer, newPlayer2)
+        newGame.changePlayer()
+        assert.equal(newGame.currentPlayer, newPlayer1)
+    })
+    it('Should be able to fill grid space that is played', function () {
+        var newPlayer1 = new Player({ id: 'one', token: '1' });
+        var newPlayer2 = new Player({ id: 'two', token: '2' });
+        var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
+
+        var gridSpace = 0
+
+        assert.equal(newGame.gameBoard[gridSpace], '')
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '1')
+
+        gridSpace = 1
+        assert.equal(newGame.gameBoard[gridSpace], '')
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '2')
+    })
+    it('Should not be able to play in a space that has already been played in', function () {
+        var newPlayer1 = new Player({ id: 'one', token: '1' });
+        var newPlayer2 = new Player({ id: 'two', token: '2' });
+        var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
+
+        gridSpace = 0
+        assert.equal(newGame.gameBoard[gridSpace], '')
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '1')
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '1')
+        assert.equal(newGame.currentPlayer, newPlayer2)
+        gridSpace = 1
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '2')
+        newGame.playTurn(gridSpace)
+        assert.equal(newGame.gameBoard[gridSpace], '2')
+        assert.equal(newGame.currentPlayer, newPlayer1)
+    })
+    it('Should not be able to pick a number outside the grid', function () {
+        var newPlayer1 = new Player({ id: 'one', token: '1' });
+        var newPlayer2 = new Player({ id: 'two', token: '2' });
+        var newGame = new Game({ playerOne: newPlayer1, playerTwo: newPlayer2 })
+
+        this.gameBoard.length = 
     })
 })

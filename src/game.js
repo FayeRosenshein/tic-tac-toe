@@ -11,11 +11,19 @@ class Game {
         this.draw = false
     }
     checkEndCondition() {
-        var winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+        var winConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]]
         for (var i = 0; i < winConditions.length; i++) {
             var triplet = winConditions[i];
-           if (this.gameBoard[triplet[0]] === this.gameBoard[triplet[1]] &&
-            this.gameBoard[triplet[0]] === this.gameBoard[triplet[2]]) {
+            if (this.gameBoard[triplet[0]] === this.gameBoard[triplet[1]] &&
+                this.gameBoard[triplet[0]] === this.gameBoard[triplet[2]]) {
                 this.hasWon = true
             }
         }
@@ -32,8 +40,21 @@ class Game {
         this.hasWon = false
         this.draw = false
     }
-    playTurn() {
-        this.checkEndCondition()
+    changePlayer() {
+        if (this.currentPlayer === this.playerOne) {
+            this.currentPlayer = this.playerTwo
+        }  else {
+            this.currentPlayer = this.playerOne
+        }
+    }
+    playTurn(gridSpacePlayed) {
+        if (this.currentPlayer === this.playerOne && this.gameBoard[gridSpacePlayed] === '') {
+            this.gameBoard[gridSpacePlayed] = this.playerOne.token
+            this.changePlayer()
+        } else if (this.currentPlayer === this.playerTwo && this.gameBoard[gridSpacePlayed] === '') {
+            this.gameBoard[gridSpacePlayed] = this.playerTwo.token
+            this.changePlayer()
+        }
     }
 }
 module.exports = Game
