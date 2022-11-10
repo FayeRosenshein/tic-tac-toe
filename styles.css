@@ -9,9 +9,50 @@ header {
 
 
 /* MAIN */
-
 .board-game-layout-container {
-   
+    width: 50%;
+}
+.tic-tac-toe-grid {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+.grid-item {
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-item:nth-child(1) {
+    border-left: 0px;
+    border-top: 0px;
+}
+.grid-item:nth-child(2) {
+    border-top: 0px;
+}
+.grid-item:nth-child(3) {
+    border-right: 0px;
+    border-top: 0px;
+}
+.grid-item:nth-child(4) {
+    border-left: 0px;
+}
+.grid-item:nth-child(6) {
+    border-right: 0px;
+}
+.grid-item:nth-child(7) {
+    border-left: 0px;
+    border-bottom: 0px;
+}
+.grid-item:nth-child(8) {
+    border-bottom: 0px;
+}
+.grid-item:nth-child(9) {
+    border-right: 0px;
+    border-bottom: 0px;
 }
 
 /* BANNERS */

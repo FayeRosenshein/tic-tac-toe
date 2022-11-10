@@ -74,4 +74,4 @@ class Game {
         this.draw = true
     }
 }
-module.exports = Game
+// module.exports = Game
