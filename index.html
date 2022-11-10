@@ -15,33 +15,37 @@
         <section class="banner-wrapper">
             <article class="player-1-side-banner">
                 <div class="player-1-title">Player one</div>
-                <div class="play-1-icon" id="player1Icon">'icon'</div>
-                <div class="player-1-wins">Wins: 0</div>
+                <div class="play-1-token" id="player1Token">Token</div>
+                <div class="player-1-wins">Wins: 
+                    <p class="player-1-win-count" id="player1WinCount">0</p>
+                </div>
             </article>
             <section class="board-game-layout-container">
                 <section class="tic-tac-toe-grid">
-                    <div class="grid-item">0</div>
-                    <div class="grid-item">1</div>
-                    <div class="grid-item">2</div>
-                    <div class="grid-item">3</div>
-                    <div class="grid-item">4</div>
-                    <div class="grid-item">5</div>
-                    <div class="grid-item">6</div>
-                    <div class="grid-item">7</div>
-                    <div class="grid-item">8</div>
+                    <div class="grid-item" id="gridItem0">0</div>
+                    <div class="grid-item" id="gridItem1">1</div>
+                    <div class="grid-item" id="gridItem2">2</div>
+                    <div class="grid-item" id="gridItem3">3</div>
+                    <div class="grid-item" id="gridItem4">4</div>
+                    <div class="grid-item" id="gridItem5">5</div>
+                    <div class="grid-item" id="gridItem6">6</div>
+                    <div class="grid-item" id="gridItem7">7</div>
+                    <div class="grid-item" id="gridItem8">8</div>
                 </section>
             </section>
                 <article class="player-2-side-banner">
-                    <div class="player-2-title">Player one</div>
-                    <div class="play-2-icon" id="player2Icon">'icon'</div>
-                    <div class="player-2-wins">Wins: 0</div>
+                    <div class="player-2-title">Player Two</div>
+                    <div class="play-2-token" id="player2Token">Token</div>
+                    <div class="player-2-wins">Wins: 
+                        <p class="player-2-win-count" id="player2WinCount">0</p>
+                    </div>
                 </article>
         </section>
     </main>
 
-    <script src="scr/player.js"></script>
-    <script src="src/game.js"></script>
     <script src="src/main.js"></script>
+    <script src="src/game.js"></script>
+    <script src="src/player.js"></script>
 </body>
 
 </html>

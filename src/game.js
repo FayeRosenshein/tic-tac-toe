@@ -7,7 +7,8 @@ class Game {
             this.gameBoard.push('')
         }
         this.currentPlayer = this.playerOne
-        this.hasWon = false
+        this.turnCount = 0
+        this.winner = ''
         this.draw = false
     }
     checkEndCondition() {
@@ -23,21 +24,24 @@ class Game {
         for (var i = 0; i < winConditions.length; i++) {
             var triplet = winConditions[i];
             if (this.gameBoard[triplet[0]] === this.gameBoard[triplet[1]] &&
-                this.gameBoard[triplet[0]] === this.gameBoard[triplet[2]]) {
-                this.hasWon = true
+                this.gameBoard[triplet[0]] === this.gameBoard[triplet[2]] && this.gameBoard[triplet[0]] !== '') {
+                    this.playerWins(this.currentPlayer)
+                }
             }
-        }
-        var hasEmpty = this.gameBoard.includes('')
-        if (!hasEmpty) {
-            this.draw = true
-        }
+            var hasEmpty = this.gameBoard.includes('')
+            if (!hasEmpty) {
+                this.draw = true
+            }
     }
     resetGameBoard() {
         this.gameBoard = []
         for (var i = 0; i < 9; i++) {
             this.gameBoard.push('')
         }
-        this.hasWon = false
+        this.playerOne.wins = this.playerOne.wins
+        this.playerTwo.wins = this.playerTwo.wins
+        this.turnCount = 0
+        this.winner = ''
         this.draw = false
     }
     changePlayer() {
@@ -51,24 +55,21 @@ class Game {
         if(gridSpacePlayed > 8 || gridSpacePlayed < 0) {
             return `no`
         }
-        if (this.currentPlayer === this.playerOne && this.gameBoard[gridSpacePlayed] === '') {
-            this.gameBoard[gridSpacePlayed] = this.currentPlayer.token
-            this.changePlayer()
-        } 
-        if (this.currentPlayer === this.playerTwo && this.gameBoard[gridSpacePlayed] === '') {
-            this.gameBoard[gridSpacePlayed] = this.currentPlayer.token
-            this.changePlayer()
+        if (this.gameBoard[gridSpacePlayed] !== '') {
+            return `no`
         }
+        if (this.winner !== '') {
+            return 'no'
+        }
+        this.gameBoard[gridSpacePlayed] = this.currentPlayer.token
+        this.turnCount += 1
+        this.checkEndCondition()
+        this.changePlayer()
     }
     playerWins(player) {
-        if (player === this.playerOne) {
-            this.playerOne.increaseWins()
-            this.resetGameBoard()
-        } else {
-            this.playerTwo.increaseWins()
-            this.resetGameBoard()
+            player.increaseWins()
+            this.winner = player
         }
-    }
     playersDraw() {
         this.draw = true
     }
