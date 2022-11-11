@@ -146,14 +146,14 @@ describe("Game", function () {
         playResult = newGame.playTurn(gridSpace)
         assert.equal(newGame.gameBoard[gridSpace], '1')
         assert.equal(newGame.currentPlayer, newPlayer2)
-        assert.equal(playResult, 'no')
+        assert.equal(playResult, 'no2')
         gridSpace = 1
         playResult = newGame.playTurn(gridSpace)
         assert.equal(newGame.gameBoard[gridSpace], '2')
         assert.equal(playResult, undefined)
         playResult = newGame.playTurn(gridSpace)
         assert.equal(newGame.gameBoard[gridSpace], '2')
-        assert.equal(playResult, 'no')
+        assert.equal(playResult, 'no2')
         assert.equal(newGame.currentPlayer, newPlayer1)
     })
     it('Should not be able to pick a number outside the grid', function () {
@@ -168,10 +168,10 @@ describe("Game", function () {
         assert.equal(playResult, undefined)
         gridSpace = 9
         playResult = newGame.playTurn(gridSpace)
-        assert.equal(playResult, 'no')
+        assert.equal(playResult, 'no1')
         gridSpace = -1
         playResult = newGame.playTurn(gridSpace)
-        assert.equal(playResult, 'no')
+        assert.equal(playResult, 'no1')
     })
     it('Should let player win', function () {
         var newPlayer1 = new Player({ id: 'one', token: '1' });

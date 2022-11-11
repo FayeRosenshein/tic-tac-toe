@@ -1,67 +1,122 @@
-
-
 /*HEADER */
-
-header {
-   display: flex;
-   justify-content: center;
+body {
+    background-image: url('assets/winnie_the_pooh-08_Featured.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* font-family: fantasy; */
+    /* font-style: italic; */
+    font-weight: 900;
+    /* font-display: inherit; */
 }
 
+.tic-tac-toe-title {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 143, .4), rgba(255, 87, 51, .5 ));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 50px;
+    font-size: large;
+}
+
+
+
+/* BANNERS */
+
+.banner-wrapper {
+    font-size: x-large;
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .7), rgba(255, 87, 51, .5 ));
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 50px;
+    margin: 0px 50px;
+}
+
+.player-1-side-banner,
+.player-2-side-banner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    /* padding: 20px 0px; */
+    /* margin: 50px; */
+}
+
+.player-1-win-count,
+.player-2-win-count {
+    display: flex;
+    justify-content: center;
+}
 
 /* MAIN */
+
+.t-t-t-current-player {
+    font-weight: 900;
+}
+
 .board-game-layout-container {
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
     width: 50%;
 }
+
 .tic-tac-toe-grid {
     height: 50vh;
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px;
+    font-size: large;
 }
+
 .grid-item {
-  border: 5px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .grid-item:nth-child(1) {
     border-left: 0px;
     border-top: 0px;
 }
+
 .grid-item:nth-child(2) {
     border-top: 0px;
 }
+
 .grid-item:nth-child(3) {
     border-right: 0px;
     border-top: 0px;
 }
+
 .grid-item:nth-child(4) {
     border-left: 0px;
 }
+
 .grid-item:nth-child(6) {
     border-right: 0px;
 }
+
 .grid-item:nth-child(7) {
     border-left: 0px;
     border-bottom: 0px;
 }
+
 .grid-item:nth-child(8) {
     border-bottom: 0px;
 }
+
 .grid-item:nth-child(9) {
     border-right: 0px;
     border-bottom: 0px;
 }
 
-/* BANNERS */
-
-.banner-wrapper {
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 50px;
-}

@@ -53,18 +53,20 @@ class Game {
     }
     playTurn(gridSpacePlayed) {
         if(gridSpacePlayed > 8 || gridSpacePlayed < 0) {
-            return `no`
+            return `no1`
         }
         if (this.gameBoard[gridSpacePlayed] !== '') {
-            return `no`
+            return `no2`
         }
         if (this.winner !== '') {
-            return 'no'
+            return 'no3'
         }
         this.gameBoard[gridSpacePlayed] = this.currentPlayer.token
         this.turnCount += 1
         this.checkEndCondition()
-        this.changePlayer()
+        if(this.winner === '') {
+            this.changePlayer()
+        }
     }
     playerWins(player) {
             player.increaseWins()
@@ -72,6 +74,7 @@ class Game {
         }
     playersDraw() {
         this.draw = true
+        this.resetGameBoard()
     }
 }
 // module.exports = Game
