@@ -9,24 +9,18 @@
     <title>Tic-Tac-Toe</title>
 </head>
 
-<style>
-    body {
-        /* background-image: url(assets/winnie_the_pooh-08_Featured.webp) */
-    }
-</style>
-
 <body>
     <header class="tic-tac-toe-title" id="ticTacToeTitle">
         <h1>TIC TAC TOE BATTLE ROYAL</h1>
         <p class="winner hidden" id="winner"></p>
-        <p class="t-t-t-current-player hidden" id="TTTCurrentPlayer">PLAYER 1</p>
+        <p class="t-t-t-current-player" id="TTTCurrentPlayer">PLAYER 1</p>
     </header>
     <main>
         <section class="banner-wrapper">
             <article class="player-1-side-banner">
                 <div class="player-1-title">Player one</div>
-                <div class="player-token" id="player1Token">
-                    <img src="" >
+                <div class="player-token" >
+                    <img height="100" id="player1Token" src="assets/redballoon.png" alt="Hunny pot" class="hunny-pot">
                 </div>
                 <div class="player-1-wins">Wins:
                     <p class="player-1-win-count" id="player1WinCount">0</p>
@@ -34,21 +28,39 @@
             </article>
             <section class="board-game-layout-container">
                 <section class="tic-tac-toe-grid">
-                    <div class="grid-item" id="gridItem0" src=""></div>
-                    <div class="grid-item" id="gridItem1"></div>
-                    <div class="grid-item" id="gridItem2"></div>
-                    <div class="grid-item" id="gridItem3"></div>
-                    <div class="grid-item" id="gridItem4"></div>
-                    <div class="grid-item" id="gridItem5"></div>
-                    <div class="grid-item" id="gridItem6"></div>
-                    <div class="grid-item" id="gridItem7"></div>
-                    <div class="grid-item" id="gridItem8"></div>
+                    <div class="grid-item" >
+                        <img id="gridItem0" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem1" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem2" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem3" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem4" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem5" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem6" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem7" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
+                    <div class="grid-item" >
+                        <img id="gridItem8" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                    </div>
                 </section>
             </section>
             <article class="player-2-side-banner">
                 <div class="player-2-title">Player Two</div>
-                <div class="player-token" id="player2Token">
-                    <img width="100" src="./assets/hunnypotcopy.png" alt="Hunny pot" class="hunny-pot">
+                <div class="player-token" >
+                    <img id="player2Token" width="100" src="assets/hunnypotcopy.png" alt="Hunny pot" class="hunny-pot">
                 </div>
                 <div class="player-2-wins">Wins:
                     <p class="player-2-win-count" id="player2WinCount">0</p>

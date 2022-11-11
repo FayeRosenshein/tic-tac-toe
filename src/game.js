@@ -6,6 +6,7 @@ class Game {
         for (var i = 0; i < 9; i++) {
             this.gameBoard.push('')
         }
+        this.firstPlayer = this.playerOne
         this.currentPlayer = this.playerOne
         this.turnCount = 0
         this.winner = ''
@@ -38,6 +39,12 @@ class Game {
         for (var i = 0; i < 9; i++) {
             this.gameBoard.push('')
         }
+        if (this.firstPlayer === this.playerOne) {
+            this.firstPlayer = this.playerTwo
+        }  else {
+            this.firstPlayer = this.playerOne
+        }
+        this.currentPlayer = this.firstPlayer
         this.playerOne.wins = this.playerOne.wins
         this.playerTwo.wins = this.playerTwo.wins
         this.turnCount = 0

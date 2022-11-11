@@ -27,10 +27,10 @@ var newGameButton = document.getElementById('newGameButton')
 
 //GLOBAL VARIABLES
 var boxes = [box0, box1, box2, box3, box4, box5, box6, box7, box8]
-var player1Id = 'player1Token'
-var playerToken1 = player1Token.innerText
+var player1Id = '1'
+var playerToken1 = player1Token.src
 var player1 = new Player({ id: player1Id, token: playerToken1 })
-var player2Id = 'player2Token'
+var player2Id = '2'
 var playerToken2 = player2Token.src
 var player2 = new Player({ id: player2Id, token: playerToken2 })
 var game = new Game({ playerOne: player1, playerTwo: player2 })
@@ -54,44 +54,37 @@ newGameButton.addEventListener('click', gameStarts)
 
 
 function playTurn(event) {
-    console.log(game.playerTwo.token)
-    console.log(event.target)
-    displayCurrentPlayer()
     var currentBox = event.target
-    currentBox.innerHTML = `<div class="player-token" id="${game.currentPlayer.id}">
-    <img width="100" src="${game.currentPlayer.token}" alt="Hunny pot" class="hunny-pot">
-</div>`
+    currentBox.src = game.currentPlayer.token
     for (var i = 0; i < boxes.length; i++) {
+        console.log('before conditional')
         if (event.target === boxes[i]) {
             game.playTurn(i)
             gameEnds()
         }
     }
+    displayCurrentPlayer()
 }
 
 function blankGrid() {
-    box0.innerText = ''
-    box1.innerText = ''
-    box2.innerText = ''
-    box3.innerText = ''
-    box4.innerText = ''
-    box5.innerText = ''
-    box6.innerText = ''
-    box7.innerText = ''
-    box8.innerText = ''
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].src = 'assets/No_image.svg.png'
+    }
 }
 
 function gameEnds() {
-    if (game.winner !== '') {
-        game.resetGameBoard()
-        displayCurrentWinner(true)
+    if (game.winner !== '' || game.draw === true) {
         displayWins()
-        blankGrid()
+        displayCurrentWinner(true)
+        setTimeout(gameStarts, 3000)
     }
 }
 
 function gameStarts() {
+    blankGrid()
+    game.resetGameBoard()
     displayCurrentWinner(false)
+    displayCurrentPlayer()
 }
 
 function displayCurrentPlayer() {
@@ -111,7 +104,11 @@ function displayCurrentWinner(show) {
         currentWinner.classList.add('hidden')
         currentPlayerBanner.classList.remove('hidden')
     }
-    currentWinner.innerText = `PLAYER ${game.currentPlayer.id} WINS`
+    if (game.winner !== '') {
+        currentWinner.innerText = `PLAYER ${game.currentPlayer.id} WINS`
+    } else {
+        currentWinner.innerText = `Sorry, no one wins`
+    }
 }
 
 
