@@ -1,13 +1,7 @@
-//YAGNI You Ain't Gonna Need It
-// var Game = require("../src/game")
-// var Player = require("../src/player")
-
-
-
 //jquery
 var playGameButton = document.getElementById('playGameButton')
 var topBanner = document.querySelector('.tic-tac-toe-title')
-var currentPlayerBanner = document.getElementById('TTTCurrentPlayer')
+var playerBanner = document.getElementById('playerBanner')
 var currentWinner = document.querySelector('.winner')
 var player1Token = document.getElementById('player1Token')
 var player1TokenClass = document.querySelector('.play-1-token')
@@ -51,7 +45,7 @@ box5.addEventListener('click', playTurn)
 box6.addEventListener('click', playTurn)
 box7.addEventListener('click', playTurn)
 box8.addEventListener('click', playTurn)
-keepPlayingButton.addEventListener('click', playAgain)
+keepPlayingButton.addEventListener('click', gameStarts)
 newGameButton.addEventListener('click', doNotPlayAgain)
 playGameButton.addEventListener('click', newGame)
 
@@ -72,30 +66,27 @@ function newGame(show) {
     }
 }
 
-function playAgain(event) {
+function playAgain() {
     newGame(true)
-    if (event.target === keepPlayingButton) {
-        newGame(false)
-        gameStarts()
-    }
 }
 function doNotPlayAgain(event) {
     location.reload(event)
 }
 
 function playTurn(event) {
-    if (game.winner !== '' || game.draw === true) {
+    var currentBox = event.target
+    if (game.winner !== '' || game.draw === true){
         return
     }
-    var currentBox = event.target
-    currentBox.src = game.currentPlayer.token
     for (var i = 0; i < boxes.length; i++) {
         if (event.target === boxes[i]) {
-            game.playTurn(i)
+            var turn = game.playTurn(i)
+            if (turn === 'turn over') {
+                currentBox.src = game.gameBoard[i]   
+            }
             gameEnds()
         }
     }
-    displayCurrentPlayer()
 }
 
 function blankGrid() {
@@ -107,9 +98,10 @@ function blankGrid() {
 function gameEnds() {
     if (game.winner !== '' || game.draw === true) {
         displayWins()
-        displayCurrentWinner(true)
         setTimeout(playAgain, 2000)
-
+        displayCurrentWinner()
+    } else {
+        displayCurrentPlayer()
     }
 }
 
@@ -117,12 +109,12 @@ function gameStarts() {
     newGame(false)
     blankGrid()
     game.resetGameBoard()
-    displayCurrentWinner(false)
+    displayCurrentWinner()
     displayCurrentPlayer()
 }
 
 function displayCurrentPlayer() {
-    currentPlayerBanner.innerText = `PLAYER ${game.currentPlayer.id}`
+    playerBanner.innerText = `PLAYER ${game.currentPlayer.id}`
 }
 
 function displayWins() {
@@ -130,20 +122,10 @@ function displayWins() {
     player2WinCount.innerText = player2.wins
 }
 
-function displayCurrentWinner(show) {
-    if (show === true) {
-        currentWinner.classList.remove('hidden')
-        currentPlayerBanner.classList.add('hidden')
-    } else {
-        currentWinner.classList.add('hidden')
-        currentPlayerBanner.classList.remove('hidden')
-    }
+function displayCurrentWinner() {
     if (game.winner !== '') {
-        currentWinner.innerText = `PLAYER ${game.currentPlayer.id} WINS`
+        playerBanner.innerText = `PLAYER ${game.currentPlayer.id} WINS`
     } else {
-        currentWinner.innerText = `Sorry, no one wins`
+        playerBanner.innerText = `Sorry, no one wins`
     }
 }
-
-
-

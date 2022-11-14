@@ -8,4 +8,3 @@ class Player{
         this.wins++
     }
 }
-// module.exports = Player

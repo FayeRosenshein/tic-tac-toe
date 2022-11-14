@@ -45,8 +45,6 @@ class Game {
             this.firstPlayer = this.playerOne
         }
         this.currentPlayer = this.firstPlayer
-        this.playerOne.wins = this.playerOne.wins
-        this.playerTwo.wins = this.playerTwo.wins
         this.turnCount = 0
         this.winner = ''
         this.draw = false
@@ -74,6 +72,7 @@ class Game {
         if(this.winner === '') {
             this.changePlayer()
         }
+        return 'turn over'
     }
     playerWins(player) {
             player.increaseWins()
@@ -84,4 +83,3 @@ class Game {
         this.resetGameBoard()
     }
 }
-// module.exports = Game
