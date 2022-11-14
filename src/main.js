@@ -53,7 +53,7 @@ box7.addEventListener('click', playTurn)
 box8.addEventListener('click', playTurn)
 keepPlayingButton.addEventListener('click', playAgain)
 newGameButton.addEventListener('click', doNotPlayAgain)
-playGameButton.addEventListener('click', gameStarts)
+playGameButton.addEventListener('click', newGame)
 
 
 
@@ -114,11 +114,11 @@ function gameEnds() {
 }
 
 function gameStarts() {
+    newGame(false)
     blankGrid()
     game.resetGameBoard()
     displayCurrentWinner(false)
     displayCurrentPlayer()
-    newGame(false)
 }
 
 function displayCurrentPlayer() {
