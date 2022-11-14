@@ -1,0 +1,195 @@
+/*HEADER */
+body {
+    background-image: url('assets/winnie_the_pooh-08_Featured.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-weight: 900;
+    color: #f2f3f4;
+}
+
+button {
+    background-image: linear-gradient(to left, rgba(255, 255, 143), rgba(255, 87, 51));
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tic-tac-toe-title,
+.welcome-page {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 143, .4), rgba(255, 87, 51, .5 ));
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 50px;
+    font-size: large;
+}
+
+.welcome-page {
+    background-image: none;
+    height: 100vh;
+}
+
+.center-welcome-page {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 143, .4), rgba(255, 87, 51, .5),rgba(255, 255, 143, .4));
+    font-size: 30px;
+    width: 80%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.play-game-button {
+    background-image: linear-gradient(to left, rgba(255, 255, 143), rgba(255, 87, 51));
+    padding: 10px;
+    border-radius: 10px;
+    margin: 50px;
+}
+
+h1 {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 143, .3), rgba(255, 87, 51, .3 ));
+    padding: 10px;
+}
+
+
+
+/* BANNERS */
+
+.banner-wrapper{
+    font-size: x-large;
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .5), rgba(255, 87, 51, .5 ));
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 50px;
+    margin: 0px 50px;
+}
+
+.player-1-side-banner,
+.player-2-side-banner {
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .3), rgba(255, 87, 51, .3 ));
+    padding: 10px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 40vh;
+}
+
+.player-1-win-count,
+.player-2-win-count {
+    display: flex;
+    justify-content: center;
+}
+
+/* MAIN */
+
+.player-banner {
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.board-game-layout-container {
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+    width: 50%;
+}
+
+.tic-tac-toe-grid {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: large;
+    justify-content: center;
+}
+
+.grid-item {
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item:nth-child(1) {
+    border-left: 0px;
+    border-top: 0px;
+}
+
+.grid-item:nth-child(2) {
+    border-top: 0px;
+}
+
+.grid-item:nth-child(3) {
+    border-right: 0px;
+    border-top: 0px;
+}
+
+.grid-item:nth-child(4) {
+    border-left: 0px;
+}
+
+.grid-item:nth-child(6) {
+    border-right: 0px;
+}
+
+.grid-item:nth-child(7) {
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+.grid-item:nth-child(8) {
+    border-bottom: 0px;
+}
+
+.grid-item:nth-child(9) {
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+.play-again {
+    font-size: xx-large;
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .7), rgba(255, 87, 51, .5 ));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    padding: 50px;
+    margin: 0px 50px;
+}
+
+.play-again-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.new-game-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px 30px;
+    border-radius: 3px;
+    margin: 75px;
+}
+.hidden {
+    display: none;
+}
