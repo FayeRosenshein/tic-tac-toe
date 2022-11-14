@@ -66,8 +66,8 @@ function newGame(show) {
         welcomePage.classList.add('hidden')
     } else {
         playAgainPage.classList.add('hidden')
-        gamePage.classList.remove('hidden')
         welcomePage.classList.add('hidden')
+        gamePage.classList.remove('hidden')
         topBanner.classList.remove('hidden')
     }
 }
@@ -108,7 +108,7 @@ function gameEnds() {
     if (game.winner !== '' || game.draw === true) {
         displayWins()
         displayCurrentWinner(true)
-        setTimeout(playAgain, 3000)
+        setTimeout(playAgain, 2000)
 
     }
 }
