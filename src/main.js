@@ -5,7 +5,8 @@
 
 
 //jquery
-var topBanner = document.getElementById('ticTacToeTitle')
+var playGameButton = document.getElementById('playGameButton')
+var topBanner = document.querySelector('.tic-tac-toe-title')
 var currentPlayerBanner = document.getElementById('TTTCurrentPlayer')
 var currentWinner = document.querySelector('.winner')
 var player1Token = document.getElementById('player1Token')
@@ -23,7 +24,11 @@ var box5 = document.getElementById('gridItem5')
 var box6 = document.getElementById('gridItem6')
 var box7 = document.getElementById('gridItem7')
 var box8 = document.getElementById('gridItem8')
+var gamePage = document.querySelector('.banner-wrapper')
+var playAgainPage = document.querySelector('.play-again')
+var welcomePage = document.querySelector('.welcome-page')
 var newGameButton = document.getElementById('newGameButton')
+var keepPlayingButton = document.getElementById('keepPlayingButton')
 
 //GLOBAL VARIABLES
 var boxes = [box0, box1, box2, box3, box4, box5, box6, box7, box8]
@@ -46,18 +51,45 @@ box5.addEventListener('click', playTurn)
 box6.addEventListener('click', playTurn)
 box7.addEventListener('click', playTurn)
 box8.addEventListener('click', playTurn)
-newGameButton.addEventListener('click', gameStarts)
+keepPlayingButton.addEventListener('click', playAgain)
+newGameButton.addEventListener('click', doNotPlayAgain)
+playGameButton.addEventListener('click', gameStarts)
 
 
 
 //functions and event delegation
 
+function newGame(show) {
+    if (show === true) {
+        playAgainPage.classList.remove('hidden')
+        gamePage.classList.add('hidden')
+        welcomePage.classList.add('hidden')
+    } else {
+        playAgainPage.classList.add('hidden')
+        gamePage.classList.remove('hidden')
+        welcomePage.classList.add('hidden')
+        topBanner.classList.remove('hidden')
+    }
+}
+
+function playAgain(event) {
+    newGame(true)
+    if (event.target === keepPlayingButton) {
+        newGame(false)
+        gameStarts()
+    }
+}
+function doNotPlayAgain(event) {
+    location.reload(event)
+}
 
 function playTurn(event) {
+    if (game.winner !== '' || game.draw === true) {
+        return
+    }
     var currentBox = event.target
     currentBox.src = game.currentPlayer.token
     for (var i = 0; i < boxes.length; i++) {
-        console.log('before conditional')
         if (event.target === boxes[i]) {
             game.playTurn(i)
             gameEnds()
@@ -76,7 +108,8 @@ function gameEnds() {
     if (game.winner !== '' || game.draw === true) {
         displayWins()
         displayCurrentWinner(true)
-        setTimeout(gameStarts, 3000)
+        setTimeout(playAgain, 3000)
+
     }
 }
 
@@ -85,6 +118,7 @@ function gameStarts() {
     game.resetGameBoard()
     displayCurrentWinner(false)
     displayCurrentPlayer()
+    newGame(false)
 }
 
 function displayCurrentPlayer() {

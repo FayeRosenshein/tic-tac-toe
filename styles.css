@@ -4,14 +4,20 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    /* font-family: fantasy; */
-    /* font-style: italic; */
     font-weight: 900;
-    /* font-display: inherit; */
+    color: #f2f3f4;
 }
 
-.tic-tac-toe-title {
+button {
+    background-image: linear-gradient(to left, rgba(255, 255, 143), rgba(255, 87, 51));
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tic-tac-toe-title,
+.welcome-page {
     background-image: linear-gradient(to bottom, rgba(255, 255, 143, .4), rgba(255, 87, 51, .5 ));
+    font-size: 45px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,13 +26,42 @@ body {
     font-size: large;
 }
 
+.welcome-page {
+    background-image: none;
+    height: 100vh;
+}
+
+.center-welcome-page {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 143, .4), rgba(255, 87, 51, .5),rgba(255, 255, 143, .4));
+    font-size: 30px;
+    width: 80%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.play-game-button {
+    background-image: linear-gradient(to left, rgba(255, 255, 143), rgba(255, 87, 51));
+    padding: 10px;
+    border-radius: 10px;
+    margin: 50px;
+}
+
+h1 {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 143, .3), rgba(255, 87, 51, .3 ));
+    padding: 10px;
+}
+
 
 
 /* BANNERS */
 
-.banner-wrapper {
+.banner-wrapper{
     font-size: x-large;
-    background-image: linear-gradient(to top, rgba(255, 255, 143, .7), rgba(255, 87, 51, .5 ));
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .5), rgba(255, 87, 51, .5 ));
     height: 80vh;
     display: flex;
     justify-content: space-between;
@@ -38,13 +73,15 @@ body {
 
 .player-1-side-banner,
 .player-2-side-banner {
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .3), rgba(255, 87, 51, .3 ));
+    padding: 10px;
+    font-size: 25px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     width: 25%;
-    /* padding: 20px 0px; */
-    /* margin: 50px; */
+    height: 40vh;
 }
 
 .player-1-win-count,
@@ -57,6 +94,12 @@ body {
 
 .t-t-t-current-player {
     font-weight: 900;
+    font-size: 30px;
+}
+
+.winner {
+    font-weight: 900;
+    font-size: 50px;
 }
 
 .board-game-layout-container {
@@ -79,6 +122,7 @@ body {
     border: 5px solid black;
     border-radius: 10px;
     padding: 10px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,6 +164,36 @@ body {
     border-bottom: 0px;
 }
 
+.play-again {
+    font-size: xx-large;
+    background-image: linear-gradient(to top, rgba(255, 255, 143, .7), rgba(255, 87, 51, .5 ));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    padding: 50px;
+    margin: 0px 50px;
+}
+
+.play-again-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.new-game-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px 30px;
+    border-radius: 3px;
+    margin: 75px;
+}
 .hidden {
     display: none;
 }

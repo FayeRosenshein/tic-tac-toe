@@ -10,17 +10,23 @@
 </head>
 
 <body>
-    <header class="tic-tac-toe-title" id="ticTacToeTitle">
-        <h1>TIC TAC TOE BATTLE ROYAL</h1>
+    <header class="tic-tac-toe-title hidden" id="ticTacToeTitle">
+        <h1>TIC TAC TOE</h1>
+        <h4>In the Hundred Acre Wood</h4>
         <p class="winner hidden" id="winner"></p>
-        <p class="t-t-t-current-player" id="TTTCurrentPlayer">PLAYER 1</p>
+        <p class="t-t-t-current-player" id="TTTCurrentPlayer">PLAYER 1</p> 
     </header>
     <main>
-        <section class="banner-wrapper">
+        <section class="welcome-page" id="welcomePage">
+            <div class="center-welcome-page">WELCOME TO THE HUNDRED ACRE WOOD
+                <button class="play-game-button" id="playGameButton">PLAY GAME</button>
+            </div>
+        </section>
+        <section class="banner-wrapper hidden">
             <article class="player-1-side-banner">
                 <div class="player-1-title">Player one</div>
                 <div class="player-token" >
-                    <img height="100" id="player1Token" src="assets/redballoon.png" alt="Hunny pot" class="hunny-pot">
+                    <img height="100" width="75" id="player1Token" src="assets/redballoon.png" alt="Hunny pot" class="hunny-pot">
                 </div>
                 <div class="player-1-wins">Wins:
                     <p class="player-1-win-count" id="player1WinCount">0</p>
@@ -29,49 +35,54 @@
             <section class="board-game-layout-container">
                 <section class="tic-tac-toe-grid">
                     <div class="grid-item" >
-                        <img id="gridItem0" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem0" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem1" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem1" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem2" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem2" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem3" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem3" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem4" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem4" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem5" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem5" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem6" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem6" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem7" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem7" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                     <div class="grid-item" >
-                        <img id="gridItem8" height="100" src="assets/No_image.svg.png" class="hunny-pot">
+                        <img id="gridItem8" height="75" src="assets/No_image.svg.png" class="hunny-pot">
                     </div>
                 </section>
             </section>
             <article class="player-2-side-banner">
                 <div class="player-2-title">Player Two</div>
                 <div class="player-token" >
-                    <img id="player2Token" width="100" src="assets/hunnypotcopy.png" alt="Hunny pot" class="hunny-pot">
+                    <img id="player2Token" height="100" width="90" src="assets/hunnypotcopy.png" alt="Hunny pot" class="hunny-pot">
                 </div>
                 <div class="player-2-wins">Wins:
                     <p class="player-2-win-count" id="player2WinCount">0</p>
                 </div>
             </article>
         </section>
-        <button class="new-game-button" id="newGameButton">NEW GAME</button>
+        <section class="play-again hidden" id="playAgain">DO YOU WANT TO PLAY AGAIN?
+            <div class="play-again-style">
+                <button class="new-game-button" id="keepPlayingButton">YES</button>
+                <button class="new-game-button" id="newGameButton">NO</button>
+            </div>
+        </section>
     </main>
 
-    <script src="src/game.js"></script>
     <script src="src/player.js"></script>
+    <script src="src/game.js"></script>
     <script src="src/main.js"></script>
 </body>
 
